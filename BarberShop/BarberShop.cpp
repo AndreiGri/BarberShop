@@ -17,12 +17,19 @@ int main()
     cout << "Введите кол-во барберов в городе: ";
     cin >> numberBarbers;
     
-    if (population / 30 > numberBarbers * numberClients) {
-        numberBarbers = population / 30 - numberBarbers * numberClients;
-        cout << "Городу ещё необходимо " << numberBarbers << "!" << endl;
+    if (population / 30 < numberBarbers * numberClients) {
+        cout << "В городе достаточно барберов!" << endl;
     }
     else {
-        cout << "В городе достаточно барберов!" << endl;
+        if (population / 30 == numberBarbers * numberClients) {
+            cout << "Барберов точное кол-во для этого города!" << endl;
+        }
+        else {
+            if (population / 30 > numberBarbers * numberClients) {
+                numberBarbers = population / 30 / (numberBarbers * numberClients);
+                cout << "Городу ещё необходимо " << numberBarbers << "!" << endl;
+            }
+        }
     }
 
 
